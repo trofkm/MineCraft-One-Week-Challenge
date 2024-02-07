@@ -13,7 +13,8 @@ FPSCounter::FPSCounter()
     m_text.move(10, 10);
     m_text.setOutlineColor(sf::Color::Black);
     m_text.setOutlineThickness(2);
-
+    // TODO: it is better to use some kind of embedder like in qresources.
+    // e.g.: https://github.com/raysan5/rres
     m_font.loadFromFile("Res/Fonts/rs.ttf");
     m_text.setFont(m_font);
     m_text.setCharacterSize(25);

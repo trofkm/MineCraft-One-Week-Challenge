@@ -55,12 +55,6 @@ add_custom_target(copy_resources ALL
     COMMENT "Copying game resources into Res folder")
 
 
-add_custom_target(copy_shaders ALL
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${PROJECT_SOURCE_DIR}/Shaders
-    ${PROJECT_BINARY_DIR}/Shaders
-    COMMENT "Copying shaders into Shaders folder")
-
 #Set executable
 add_executable(mc-one-week
     Source/Item/Material.cpp
@@ -94,7 +88,7 @@ add_executable(mc-one-week
     Source/Maths/NoiseGenerator.cpp
     Source/Maths/Vector2XZ.cpp
     Source/Maths/Matrix.cpp
-    Source/Maths/GeneralMaths.cpp
+    Source/Maths/Interpolation.cpp
     Source/Camera.cpp
     Source/GL/GLFunctions.cpp
     Source/Context.cpp

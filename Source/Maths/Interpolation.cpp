@@ -1,4 +1,4 @@
-#include "GeneralMaths.h"
+#include "Interpolation.h"
 
 #include <iostream>
 
@@ -30,11 +30,11 @@ float smoothInterpolation(float bottomLeft, float topLeft, float bottomRight,
                           float topRight, float xMin, float xMax, float zMin,
                           float zMax, float x, float z)
 {
-    float width = xMax - xMin, height = zMax - zMin;
+    float width = xMax - xMin;
+    float height = zMax - zMin;
     float xValue = 1 - (x - xMin) / width;
     float zValue = 1 - (z - zMin) / height;
 
-    // std::cout << xValue << std::endl;
 
     float a = smoothstep(bottomLeft, bottomRight, xValue);
     float b = smoothstep(topLeft, topRight, xValue);
@@ -45,11 +45,12 @@ float bilinearInterpolation(float bottomLeft, float topLeft, float bottomRight,
                             float topRight, float xMin, float xMax, float zMin,
                             float zMax, float x, float z)
 {
-    float width = xMax - xMin, height = zMax - zMin,
-
-          xDistanceToMaxValue = xMax - x, zDistanceToMaxValue = zMax - z,
-
-          xDistanceToMinValue = x - xMin, zDistanceToMinValue = z - zMin;
+    float width = xMax - xMin;
+    float height = zMax - zMin;
+    float xDistanceToMaxValue = xMax - x;
+    float zDistanceToMaxValue = zMax - z;
+    float xDistanceToMinValue = x - xMin;
+    float zDistanceToMinValue = z - zMin;
 
     return 1.0f / (width * height) *
            (bottomLeft * xDistanceToMaxValue * zDistanceToMaxValue +
