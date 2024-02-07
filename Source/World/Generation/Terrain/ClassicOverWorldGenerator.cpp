@@ -3,7 +3,7 @@
 #include <functional>
 #include <iostream>
 
-#include "../../../Maths/GeneralMaths.h"
+#include "../../../Maths/Interpolation.h"
 #include "../../../Util/Random.h"
 #include "../../Chunk/Chunk.h"
 
