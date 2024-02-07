@@ -31,11 +31,7 @@ glm::mat4 makeViewMatrix(const Camera &camera)
     return matrix;
 }
 
-glm::mat4 makeProjectionMatrix(const Config &config)
+glm::mat4 makeProjectionMatrix(float sizeX, float sizeY, float fov, float zNear, float zFar)
 {
-    float x = (float)config.windowX;
-    float y = (float)config.windowY;
-    float fov = (float)config.fov;
-
-    return glm::perspective(glm::radians(fov), x / y, 0.1f, 2000.0f);
+    return glm::perspective(glm::radians(fov), sizeX / sizeY, zNear, zFar);
 }
